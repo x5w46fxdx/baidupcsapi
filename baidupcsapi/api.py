@@ -369,7 +369,7 @@ class PCSBase(object):
             if resp.ok:
                 while 1:
                     # get vcode
-                    vcode = input('Verification Code> ')
+                    vcode = input('Input email verify code > ') 
 
                     vresp = self.session.get('https://passport.baidu.com/v2/sapi/authwidgetverify',
                                              params={'authtoken': urlparse.unquote(auth_token.decode()),
