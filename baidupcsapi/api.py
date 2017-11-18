@@ -12,8 +12,6 @@ import random
 import base64
 import platform
 import subprocess
-from urllib import parse as urlparse
-from urllib.parse import urlencode
 from hashlib import md5
 from zlib import crc32
 from requests_toolbelt import MultipartEncoder
@@ -21,6 +19,17 @@ import requests
 import rsa
 import tempfile
 
+try:
+    #python3
+    from urllib import parse as urlparse
+    from urllib.parse import urlencode
+    raw_input = input
+except :
+    #python2
+    import urlparse
+    from urllib import urlencode
+    input = raw_input
+    
 try:
     requests.packages.urllib3.disable_warnings()
 except:
